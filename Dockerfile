@@ -13,7 +13,7 @@ RUN echo $PARAMETER_TOKEN > parameter.key
 RUN python3 script-encrypted-parameter.py parameter.key decrypt
 
 COPY app/* /
-RUN go mod download github.com/hashicorp/hcl/v2
+RUN go mod init main.go
 RUN go mod tidy
 RUN go build -o append main.go 
 
