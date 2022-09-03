@@ -1,4 +1,4 @@
-FROM golang:1.19.0-alpine3.16
+FROM golang:1.18.5-alpine3.16
 
 RUN apk add git bash openssh terraform python3 py3-pip
 RUN pip3 install cryptography
