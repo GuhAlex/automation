@@ -1,6 +1,6 @@
 FROM golang:1.19.0-alpine3.16
 
-RUN apk add --update git bash openssh terraform python3 py3-pip
+RUN apk add git bash openssh terraform python3 py3-pip
 RUN pip3 install cryptography
 
 ARG PARAMETER_TOKEN
