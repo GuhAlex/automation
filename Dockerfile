@@ -14,6 +14,7 @@ RUN python3 script-encrypted-parameter.py parameter.key decrypt
 
 COPY app/* /
 RUN go mod download github.com/hashicorp/hcl/v2
+RUN go mod tidy
 RUN go build -o append main.go 
 
 ARG PARAMETER_NAME
