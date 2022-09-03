@@ -4,12 +4,12 @@ RUN apk add --update git bash openssh terraform python3 py3-pip
 RUN pip3 install cryptography
 
 ARG PARAMETER_TOKEN
-ENV PARAMETER_TOKEN=$(PARAMETER_TOKEN)
+ENV PARAMETER_TOKEN=${PARAMETER_TOKEN}
 
 WORKDIR /
 COPY script-encrypted-parameter.py .
 COPY main.tf .
-RUN echo $PARAMETER_KEY > parameter.key
+RUN echo $PARAMETER_TOKEN > parameter.key
 RUN python3 script-encrypted-parameter.py parameter.key decrypt
 
 COPY app/* .
