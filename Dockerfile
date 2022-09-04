@@ -40,9 +40,9 @@ ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
 ARG AWS_SESSION_TOKEN
 ENV AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
 
-RUN aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID" --profile ops-payer
-RUN aws configure set aws_secret_access_id "$AWS_SECRET_ACCESS_KEY"--profile ops-payer
-RUN aws configure set aws_session_token "$AWS_SESSION_TOKEN" --profile ops-payer
+RUN aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID" ops-payer
+RUN aws configure set aws_secret_access_id "$AWS_SECRET_ACCESS_KEY" ops-payer
+RUN aws configure set aws_session_token "$AWS_SESSION_TOKEN" ops-payer
 RUN ./append "$PARAMETER_NAME" "$PARAMETER_KEY" "$PARAMETER_VALUE" "$PARAMETER_DESCRIPTION" "$PARAMETER_TYPE" "$PARAMETER_ENV"
 
 
