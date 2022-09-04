@@ -49,7 +49,7 @@ func createResource(terraformFile, nameResource, nameParameter, description, Par
   rsBody.SetAttributeValue("type", cty.StringVal(fmt.Sprint(Parametertype)))
   rsBody.SetAttributeValue("value", cty.StringVal(fmt.Sprint(value)))
 
-  tagBlock := rsBody.AppendNewBlock("tags", nil)
+  tagBlock := rsBody.AppendNewBlock("tags =", nil)
   tagBlockBody := tagBlock.Body()
   tagBlockBody.SetAttributeValue("environment", cty.StringVal(fmt.Sprint(env)))
   rootBody.AppendNewline()
